@@ -1,0 +1,4 @@
+error_reason,count,pct
+invalid_gps,1836,84.7
+null_value,315,14.5
+out_of_range_aqi,17,0.8

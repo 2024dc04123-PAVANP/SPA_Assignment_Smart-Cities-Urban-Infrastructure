@@ -1,0 +1,6 @@
+route_id,route_name,terminal,scheduled_arrival_time
+RT-001,Whitefield - Majestic,Majestic Bus Stand,08:15:00
+RT-002,Electronic City - KR Puram,KR Puram Terminal,08:20:00
+RT-003,Hebbal - Jayanagar,Jayanagar Terminal,08:10:00
+RT-004,Yeshwanthpur - Silk Board,Silk Board Terminal,08:25:00
+RT-005,Banashankari - Marathahalli,Marathahalli Terminal,08:05:00
