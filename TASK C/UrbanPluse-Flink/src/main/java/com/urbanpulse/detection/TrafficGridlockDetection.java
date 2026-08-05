@@ -12,6 +12,7 @@ package com.urbanpulse.detection;
 
 import com.urbanpulse.model.TrafficEvent;
 import com.urbanpulse.model.IncidentAlert;
+// import com.urbanpulse.sink.KafkaIncidentSink;
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -32,6 +33,9 @@ public class TrafficGridlockDetection {
         // Create Flink Environment
         StreamExecutionEnvironment env =
                 StreamExecutionEnvironment.getExecutionEnvironment();
+
+        env.setParallelism(1);
+        env.enableCheckpointing(10_000);
 
         // Sample Traffic Events
         DataStream<TrafficEvent> trafficStream = env.fromElements(
@@ -114,6 +118,7 @@ public class TrafficGridlockDetection {
 
         alerts.print();
 
+        //alerts.sinkTo(KafkaIncidentSink.create());
         env.execute("Traffic Gridlock Detection");
     }
 }

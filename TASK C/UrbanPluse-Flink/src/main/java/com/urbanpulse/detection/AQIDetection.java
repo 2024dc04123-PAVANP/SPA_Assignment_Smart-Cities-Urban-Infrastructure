@@ -17,6 +17,7 @@ import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import com.urbanpulse.model.AirQuality;
 import com.urbanpulse.model.IncidentAlert;
+// import com.urbanpulse.sink.KafkaIncidentSink;
 
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -27,6 +28,8 @@ public class AQIDetection {
 
         // Step 1: Create Flink Execution Environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(1);
+        env.enableCheckpointing(10_000);
 
         // Step 2: Create Sample Data
         DataStream<AirQuality> airQualityStream = env
@@ -88,6 +91,7 @@ public class AQIDetection {
         alerts.print();
 
         // Step 5: Execute Flink Job
+       // alerts.sinkTo(KafkaIncidentSink.create());
         env.execute("UrbanPulse AQI Emergency Detection");
     }
 }

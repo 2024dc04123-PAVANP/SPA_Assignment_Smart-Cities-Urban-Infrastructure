@@ -18,6 +18,7 @@ package com.urbanpulse.detection;
 
 import com.urbanpulse.model.BusEvent;
 import com.urbanpulse.model.IncidentAlert;
+// import com.urbanpulse.sink.KafkaIncidentSink;
 
 import org.apache.flink.api.common.state.MapState;
 import org.apache.flink.api.common.state.MapStateDescriptor;
@@ -33,6 +34,9 @@ public class BusBunchingDetection {
 
         StreamExecutionEnvironment env =
                 StreamExecutionEnvironment.getExecutionEnvironment();
+
+        env.setParallelism(1);
+        env.enableCheckpointing(10_000);
 
         DataStream<BusEvent> busStream = env.fromElements(
 
@@ -129,6 +133,7 @@ public class BusBunchingDetection {
 
         alerts.print();
 
+        //alerts.sinkTo(KafkaIncidentSink.create());
         env.execute("Bus Bunching Detection");
     }
 }
