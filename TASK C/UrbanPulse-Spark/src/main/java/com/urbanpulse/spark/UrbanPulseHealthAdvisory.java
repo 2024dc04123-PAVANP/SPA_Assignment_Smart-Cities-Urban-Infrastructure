@@ -12,6 +12,10 @@ public class UrbanPulseHealthAdvisory {
 
     public static void main(String[] args) throws Exception {
 
+        /* 
+         * Assignment Task C - Problem Statement 11. 
+        */
+
         // Create Spark Session
         SparkSession spark = SparkSession.builder()
                 .appName("UrbanPulse Health Advisory")
@@ -158,12 +162,12 @@ public class UrbanPulseHealthAdvisory {
         System.out.println("\nFinal Output:");
 
         finalOutput.show(false);
-        
-//        finalOutput.coalesce(1)
-//        .write()
-//        .mode("overwrite")
-//        .option("header", "true")
-//        .csv("output/health_advisory");
+
+        finalOutput.coalesce(1)
+        .write()
+        .mode("overwrite")
+        .option("header", "true")
+        .csv("output/health_advisory");
         
         
         System.out.println("\nHealth Advisory Report Saved Successfully!");

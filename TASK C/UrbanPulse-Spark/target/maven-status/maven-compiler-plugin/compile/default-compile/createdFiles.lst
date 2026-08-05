@@ -1,0 +1,5 @@
+com/urbanpulse/spark/model/AQIRecord.class
+com/urbanpulse/spark/WardEnergyAnalytics.class
+com/urbanpulse/spark/model/ZoneProfile.class
+com/urbanpulse/spark/model/SmartMeter.class
+com/urbanpulse/spark/UrbanPulseHealthAdvisory.class

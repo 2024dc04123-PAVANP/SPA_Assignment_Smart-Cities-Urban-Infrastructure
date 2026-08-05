@@ -1,0 +1,6 @@
+zone_id,zone_name,population,num_schools,aqi,AQI_Category,Health_Advisory,event_time
+701,Downtown,120000,18,35.0,Good,Enjoy outdoor activities,2026-07-31T10:00:00.000-07:00
+702,Airport,80000,10,72.0,Moderate,Sensitive groups should be careful,2026-07-31T10:01:00.000-07:00
+703,Industrial,65000,8,165.0,Unhealthy,Wear masks outdoors,2026-07-31T10:02:00.000-07:00
+704,Residential,150000,25,248.0,Very Unhealthy,Avoid outdoor activities,2026-07-31T10:03:00.000-07:00
+705,University,70000,12,315.0,Hazardous,Stay indoors. Health emergency,2026-07-31T10:04:00.000-07:00
